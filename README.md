@@ -3,7 +3,7 @@
 Python module for interacting with ITI Capital.
 
 ## Installation:
-`pip install git+https://github.com/talestorm-com/CHP_api.git`
+`pip install git+https://github.com/KrimsN/CHP_api.git`
 
 ## Example
 ```python
