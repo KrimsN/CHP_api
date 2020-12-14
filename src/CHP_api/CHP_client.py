@@ -83,11 +83,13 @@ class ChpClient(metaclass=SmartClientSingleton):
         return [*self.__listening_portfolios]
 
     @staticmethod
-    def _check_response(resp):
+    def _check_response(resp: t.Dict[str, t.Any]):
+        resp = dict((k.lower(), v) for k, v in resp.items())
+        
         if not resp['result']:
             raise ApiRequestException(resp['reason'], data=resp)
 
-    def _check_portfolio_sub(self, portfolio):
+    def _check_portfolio_sub(self, portfolio: str):
         if portfolio not in self.__listening_portfolios:
             listening_res = self.ListenPortfolio(portfolio)
             if not listening_res[portfolio]:
